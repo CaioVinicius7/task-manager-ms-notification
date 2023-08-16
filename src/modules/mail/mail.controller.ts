@@ -12,7 +12,6 @@ export interface DataToSendEmail {
   status: "todo" | "doing" | "done";
   users: {
     name: string;
-    d;
     email: string;
   }[];
 }
