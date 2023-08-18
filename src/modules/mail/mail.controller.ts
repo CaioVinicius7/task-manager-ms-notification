@@ -1,5 +1,5 @@
 import { Controller } from "@nestjs/common";
-import { EventPattern } from "@nestjs/microservices";
+import { MessagePattern } from "@nestjs/microservices";
 
 import { SendMailUseCase } from "./use-cases/send-mail";
 
@@ -20,7 +20,7 @@ export interface DataToSendEmail {
 export class MailController {
   constructor(private readonly sendMailUseCase: SendMailUseCase) {}
 
-  @EventPattern("task_notification")
+  @MessagePattern("tp_task_notification")
   async taskNotification(dataToSendEmail: DataToSendEmail) {
     return this.sendMailUseCase.execute(dataToSendEmail);
   }
